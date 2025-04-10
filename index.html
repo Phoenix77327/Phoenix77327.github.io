@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="loading">
+    <!-- Background Effects -->
+    <div class="particles-background"></div>
+    <canvas class="matrix-rain"></canvas>
+    <div class="cyber-grid"></div>
+
+    <!-- Boot Sequence -->
+    <div id="boot-sequence" class="boot-sequence">
+        <div class="boot-content">
+            <div class="boot-header">
+                <span class="terminal-text">CYBERSEC-OS v3.1.4 [Build 20240214]</span>
+                <div class="system-info">
+                    <span>KERNEL: CyberSec 6.1.4-hardened</span>
+                    <span>STATUS: Initializing...</span>
+                </div>
+            </div>
+            <div class="boot-log-container">
+                <div class="boot-log">
+                    <div class="log-entry">[BIOS] POST check completed - All systems nominal</div>
+                    <div class="log-entry">[BOOT] Loading CYBERSEC-OS kernel v6.1.4-hardened...</div>
+                    <div class="log-entry">[INIT] Initializing system components...</div>
+                    <div class="log-entry">[MEM] Verifying memory integrity... [OK]</div>
+                    <div class="log-entry">[SEC] Loading security modules...</div>
+                    <div class="log-entry">[CRYPTO] Initializing AES-256-GCM encryption...</div>
+                    <div class="log-entry">[CRYPTO] Loading quantum-resistant algorithms...</div>
+                    <div class="log-entry">[NET] Establishing secure connection [Protocol: TLS 1.3]</div>
+                    <div class="log-entry">[FIREWALL] Configuring defensive parameters...</div>
+                    <div class="log-entry">[FIREWALL] Loading ruleset: PARANOID-LEVEL-3</div>
+                    <div class="log-entry">[IDS] Starting Suricata engine v7.0.1...</div>
+                    <div class="log-entry">[IDS] Loading custom detection rules...</div>
+                    <div class="log-entry">[MONITOR] Initializing system monitoring...</div>
+                    <div class="log-entry">[MONITOR] Starting resource tracking...</div>
+                    <div class="log-entry">[AUTH] Verifying security credentials...</div>
+                    <div class="log-entry">[AUTH] Loading 2FA module...</div>
+                    <div class="log-entry">[SYS] Running security audit...</div>
+                    <div class="log-entry">[SYS] Checking for vulnerabilities...</div>
+                    <div class="log-entry success">[OK] No vulnerabilities detected</div>
+                    <div class="log-entry success">[OK] Security protocols activated</div>
+                    <div class="log-entry success">[OK] System ready for secure operations</div>
+                </div>
+            </div>
+            <div class="boot-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="boot-progress-text">[0%] System initialization in progress...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">cybersec@portfolio:~$</div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#projects">Projects</a>
+        </div>
+    </nav>
+
+    <!-- Side Links -->
+    <div class="side-links">
+        <a href="https://github.com/yourusername" class="social-icon"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/yourusername" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/yourusername" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:your@email.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Profile Section -->
+        <section id="home" class="profile-section fade-in">
+            <div class="photo-space"></div>
+            <div class="profile-content">
+                <p class="role-text">Hi, my name is</p>
+                <h1 class="glitch-text" data-text="Karuturi Prasanth Chowdary">Karuturi Prasanth Chowdary</h1>
+                <p class="subtitle">Security Enthusiast | Blue Team Specialist | Cyber Researcher</p>
+                <p class="tagline">⚔️ Hunting threats. Defending data. Staying curious.</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section section fade-in">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>
+                    Hey there! I'm Prasanth, a curious and passionate cybersecurity enthusiast, always eager to dig deeper into how things really work not just what they do, but why they do it.
+                </p>
+                <p>
+                    My journey into cybersecurity began with curiosity the kind that makes you question every request, inspect every packet, and dive into every unexpected behavior. I see cybersecurity not just as a career, but as a mindset: it's less about the tools and more about thinking critically and staying one step ahead.
+                </p>
+                <p>
+                    I have knowledge across multiple domains in cybersecurity, including networking, digital forensics, penetration testing, and security analysis. This wide exposure helps me tackle problems from different angles and connect the dots across the entire security landscape.
+                </p>
+                <p>
+                    I'm constantly learning, experimenting, and evolving driven by a genuine love for problem-solving and a passion for protecting the digital world.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section section fade-in">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Networking</h3>
+                    </div>
+                    <div class="skill-text">
+                        OSI Model, TCP/IP, DNS, DHCP, Firewalls, IDS/IPS, and Proxy configurations.
+                    </div>
+                </div>
+
+                <!-- Security Operations -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Security Operations</h3>
+                    </div>
+                    <div class="skill-text">
+                        Incident Response, Threat Hunting, Security Monitoring, Digital Forensics, Log analysis, Malware analysis, SIEM implementation.
+                    </div>
+                </div>
+
+                <!-- Tools & Technologies -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Tools & Technologies</h3>
+                    </div>
+                    <div class="skill-text">
+                        Kali Linux, Metasploit, Wireshark, Burp Suite, Nmap, Splunk, Metasploit, Autopsy, Volatility, Snort, Suricata, Sysinternal Toolkit and more.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="certificates-section section fade-in">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certificates-grid">
+                <!-- CEH Certificate -->
+                <div class="certificate-card">
+                    <div class="certificate-content">
+                        <div class="cert-logo">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Certified Ethical Hacker (CEH)</h3>
+                        <p class="cert-issuer">EC-Council</p>
+                        <p class="cert-details">
+                            <span class="cert-id">ECC4372951068</span>
+                            <span class="cert-date">Issued: February 15, 2025</span>
+                        </p>
+                        <a href="https://aspen.eccouncil.org/verify" target="_blank" class="verify-link">Verify Certificate</a>
+                    </div>
+                </div>
+
+                <!-- CompTIA Security+ Certificate -->
+                <div class="certificate-card">
+                    <div class="certificate-content">
+                        <div class="cert-logo">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>CompTIA Security+</h3>
+                        <p class="cert-issuer">CompTIA</p>
+                        <p class="cert-details">
+                            <span class="cert-id">COMP00102723887</span>
+                            <span class="cert-date">Issued: March 03, 2024</span>
+                        </p>
+                        <a href="http://verify.CompTIA.org" target="_blank" class="verify-link">Verify Certificate</a>
+                    </div>
+                </div>
+
+                <!-- CNSP Certificate -->
+                <div class="certificate-card">
+                    <div class="certificate-content">
+                        <div class="cert-logo">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3>Certified Network Security Practitioner (CNSP)</h3>
+                        <p class="cert-issuer">The SecOps Group</p>
+                        <p class="cert-details">
+                            <span class="cert-id">9676707</span>
+                            <span class="cert-date">Issued: February 17, 2025</span>
+                        </p>
+                        <a href="https://secops.group/verify" target="_blank" class="verify-link">Verify Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section section fade-in">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <i class="fas fa-shield-alt"></i>
+                            <h3>Snort IDS/IPS with pfSense</h3>
+                        </div>
+                        <p>Implemented and configured Snort IDS/IPS on pfSense firewall for network security monitoring, threat detection, and prevention. Set up custom rules and analyzed network traffic patterns.</p>
+                        <div class="project-tech">
+                            <span>Snort</span>
+                            <span>pfSense</span>
+                            <span>Network Security</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Documentation</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <i class="fas fa-search"></i>
+                            <h3>ELK Stack SIEM</h3>
+                        </div>
+                        <p>Set up and configured ELK (Elasticsearch, Logstash, Kibana) stack for centralized log management and security analysis. Created custom dashboards for real-time monitoring and threat detection.</p>
+                        <div class="project-tech">
+                            <span>Elasticsearch</span>
+                            <span>Logstash</span>
+                            <span>Kibana</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Documentation</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <i class="fas fa-bug"></i>
+                            <h3>Honeypot Analysis</h3>
+                        </div>
+                        <p>Deployed and monitored honeypots to study attacker behavior, documented TTPs (Tactics, Techniques, and Procedures), and created threat intelligence reports based on collected data.</p>
+                        <div class="project-tech">
+                            <span>T-Pot</span>
+                            <span>MITRE ATT&CK</span>
+                            <span>Threat Intel</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-file-alt"></i> Documentation</a>
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html> 
