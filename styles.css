@@ -194,19 +194,19 @@ body {
 
 /* Side Links */
 .side-links {
-    position: fixed;
-    right: 2rem;
-    top: 50%;
-    transform: translateY(-50%);
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    z-index: 90;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    margin-top: 4rem;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
 }
 
 .social-icon {
     color: var(--text-secondary);
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -405,12 +405,14 @@ main {
     }
 
     .side-links {
-        position: static;
+        width: 100%;
         flex-direction: row;
         justify-content: center;
-        margin-top: 2rem;
-        transform: none;
-        padding: 1rem;
+        gap: 2rem;
+        padding: 1.5rem;
+        margin-top: 3rem;
+        background-color: var(--bg-secondary);
+        border-radius: 8px;
     }
     
     .skills-certs-container {
@@ -428,6 +430,24 @@ main {
     
     .about-section {
         padding-top: 60px;
+    }
+
+    /* Add padding to main content to prevent overlap with fixed bottom bar */
+    main {
+        padding-bottom: 2rem;
+    }
+
+    /* Ensure content is not hidden behind the fixed bottom bar */
+    .section:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .side-links {
+        padding: 1rem;
+        gap: 1.5rem;
+        margin-top: 2rem;
     }
 }
 
@@ -761,12 +781,12 @@ main {
 
 .cert-logo {
     font-size: 2.5rem;
-    color: #fff;
+    color: var(--terminal-cyan);
     margin-bottom: 1.5rem;
 }
 
 .certificate-content h3 {
-    color: #fff;
+    color: var(--text-primary);
     font-size: 1.25rem;
     margin-bottom: 0.75rem;
     line-height: 1.4;
@@ -835,7 +855,7 @@ main {
 @media screen and (max-width: 768px) {
     /* Main content spacing */
     main {
-        padding: 4rem 1rem 1rem;
+        padding: 4rem 1rem 2rem;
         overflow-x: hidden;
     }
 
@@ -890,19 +910,24 @@ main {
 
     /* Side links */
     .side-links {
-        position: fixed;
-        bottom: 1rem;
-        right: 50%;
-        transform: translateX(50%);
-        top: auto;
+        width: 100%;
         flex-direction: row;
-        gap: 1.5rem;
-        background-color: rgba(17, 24, 39, 0.8);
-        backdrop-filter: blur(8px);
-        padding: 0.75rem 1.5rem;
-        border-radius: 2rem;
-        margin: 0;
-        z-index: 900;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1.5rem;
+        margin-top: 3rem;
+        background-color: var(--bg-secondary);
+        border-radius: 8px;
+    }
+
+    /* Add padding to main content to prevent overlap with fixed bottom bar */
+    main {
+        padding-bottom: 2rem;
+    }
+
+    /* Ensure content is not hidden behind the fixed bottom bar */
+    .section:last-child {
+        margin-bottom: 0;
     }
 
     /* Override any fade effects */
@@ -942,6 +967,11 @@ main {
         font-size: 1.5rem;
         margin-bottom: 1.25rem;
         padding-top: 1rem;
+    }
+
+    .side-links {
+        padding: 1rem;
+        gap: 1.5rem;
     }
 }
 
@@ -1291,4 +1321,28 @@ html {
 .certificates-section {
     opacity: 1 !important;
     visibility: visible !important;
+}
+
+.profile-social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.profile-social-links .social-icon {
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.profile-social-links .social-icon:hover {
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .profile-social-links {
+        justify-content: center;
+        margin-top: 1.25rem;
+    }
 } 
