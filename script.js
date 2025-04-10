@@ -1,5 +1,6 @@
 // Boot Sequence Animation
 document.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.add('loading');
     const bootSequence = document.getElementById('boot-sequence');
     const bootLog = document.querySelector('.boot-log');
     const bootLogContainer = document.querySelector('.boot-log-container');
@@ -7,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressFill = document.querySelector('.progress-fill');
     const progressText = document.querySelector('.boot-progress-text');
     const statusText = document.querySelector('.system-info span:last-child');
+    const navbar = document.querySelector('.navbar');
     let currentEntry = 0;
     let progress = 0;
 
@@ -81,6 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 bootSequence.classList.add('hidden');
                 document.body.classList.remove('loading');
+                // Show navbar after boot sequence
+                navbar.classList.add('visible');
                 initializeMainContent();
             }, 1000);
         }
@@ -92,47 +96,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Initialize main content with animations
 function initializeMainContent() {
-    // Fade in navbar
     const navbar = document.querySelector('.navbar');
-    navbar.style.opacity = '0';
-    navbar.style.transform = 'translateY(-20px)';
-    setTimeout(() => {
-        navbar.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
-        navbar.style.opacity = '1';
-        navbar.style.transform = 'translateY(0)';
-    }, 100);
 
-    // Fade in side links
-    const sideLinks = document.querySelector('.side-links');
-    sideLinks.style.opacity = '0';
+    // Show navbar with animation
     setTimeout(() => {
-        sideLinks.style.transition = 'opacity 0.5s ease-out';
-        sideLinks.style.opacity = '1';
+        navbar.classList.add('visible');
     }, 300);
 
     // Initialize sections
     const sections = document.querySelectorAll('section');
-    sections.forEach((section, index) => {
-        if (section.id === 'about') {
-            section.style.opacity = '1';
-            section.style.transform = 'none';
+    sections.forEach((section) => {
+        section.style.opacity = '1';
+        section.style.transform = 'none';
+    });
+
+    // Initialize cards with proper visibility
+    const cards = document.querySelectorAll('.skill-category, .certificate-card, .project-card');
+    cards.forEach((card) => {
+        if (isMobile) {
+            card.style.opacity = '1';
+            card.style.transform = 'none';
+            card.classList.add('visible');
         } else {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            setTimeout(() => {
-                section.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
-            }, 500 + index * 200);
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'none';
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            observer.observe(card);
         }
     });
 
-    // Initialize other features
-    initializeSkillBars();
-    initializeActiveSection();
-    initializeFadeIn();
-    initializeNavbarEffect();
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            cards.forEach(card => {
+                card.style.opacity = '1';
+                card.style.transform = 'none';
+                card.classList.add('visible');
+            });
+        }
+    });
 }
+
+// Call initialization when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeMainContent);
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -166,21 +183,19 @@ function initializeSkillBars() {
 
 // Active section highlighting
 function initializeActiveSection() {
-    const sections = document.querySelectorAll('.section');
+    const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-links a');
 
-    const setActiveSection = () => {
+    function setActiveSection() {
         let current = '';
+        
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
+            const sectionTop = section.offsetTop - 100; // Offset for better trigger point
             const sectionHeight = section.clientHeight;
-            if (scrollY >= sectionTop - 200) {
+            const scrollPosition = window.scrollY;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 current = section.getAttribute('id');
-                section.classList.add('active');
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
-            } else {
-                section.classList.remove('active');
             }
         });
 
@@ -190,10 +205,13 @@ function initializeActiveSection() {
                 link.classList.add('active');
             }
         });
-    };
+    }
 
+    // Add scroll event listener
     window.addEventListener('scroll', setActiveSection);
-    setActiveSection(); // Call once on load
+    
+    // Call once on page load
+    setActiveSection();
 }
 
 // Fade-in animation for sections
@@ -401,6 +419,9 @@ function initScrollAnimations() {
 
 // Initialize everything after boot sequence
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize active section highlighting
+    initializeActiveSection();
+    
     // Check if device is mobile
     const isMobile = window.innerWidth <= 768;
     
