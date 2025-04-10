@@ -352,14 +352,27 @@ function initMatrixRain() {
 
 // Scroll Animations
 function initScrollAnimations() {
-    // Exclude section titles and ensure they're visible
+    // Check if device is mobile
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile) {
+        // Disable animations on mobile
+        document.querySelectorAll('.fade-in, .section, .section-title, .skill-category, .certificate-card, .project-card').forEach(element => {
+            element.style.opacity = '1';
+            element.style.transform = 'none';
+            element.style.transition = 'none';
+            element.classList.add('visible');
+        });
+        return;
+    }
+
+    // Desktop animations
     document.querySelectorAll('.section-title').forEach(title => {
         title.style.opacity = '1';
         title.style.transform = 'none';
         title.style.visibility = 'visible';
     });
 
-    // Exclude profile, about sections, and section titles from fade animations
     const sections = document.querySelectorAll('.skill-category, .certificate-card, .project-card');
     const options = {
         threshold: 0.2,
@@ -370,20 +383,17 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Keep the animation visible even after scrolling away
                 observer.unobserve(entry.target);
             }
         });
     }, options);
     
     sections.forEach(section => {
-        // Reset any existing visible classes
         section.classList.remove('visible');
-        // Start observing
         observer.observe(section);
     });
 
-    // Ensure profile, about sections, and titles are always visible
+    // Ensure profile and about sections are always visible
     document.querySelectorAll('.profile-section, .about-section, .section-title').forEach(section => {
         section.classList.add('visible');
     });
@@ -391,43 +401,43 @@ function initScrollAnimations() {
 
 // Initialize everything after boot sequence
 document.addEventListener('DOMContentLoaded', () => {
-    // Existing boot sequence code...
+    // Check if device is mobile
+    const isMobile = window.innerWidth <= 768;
     
-    // Initialize new effects
-    initParticles();
-    initMatrixRain();
-    initScrollAnimations();
+    if (isMobile) {
+        // Disable all animations on mobile
+        document.querySelectorAll('.fade-in, .section, .section-title, .skill-category, .certificate-card, .project-card').forEach(element => {
+            element.style.opacity = '1';
+            element.style.transform = 'none';
+            element.style.transition = 'none';
+            element.classList.add('visible');
+        });
+    } else {
+        // Initialize animations for desktop
+        initParticles();
+        initMatrixRain();
+        initScrollAnimations();
+    }
     
     // Handle window resize
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-            initScrollAnimations();
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                // Disable animations on mobile
+                document.querySelectorAll('.fade-in, .section, .section-title, .skill-category, .certificate-card, .project-card').forEach(element => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'none';
+                    element.style.transition = 'none';
+                    element.classList.add('visible');
+                });
+            } else {
+                initScrollAnimations();
+            }
         }, 250);
     });
-
-    // After boot sequence completes
-    setTimeout(() => {
-        // Ensure all section titles are immediately visible
-        document.querySelectorAll('.section-title').forEach(title => {
-            title.style.opacity = '1';
-            title.style.transform = 'none';
-            title.style.visibility = 'visible';
-        });
-
-        // Ensure profile and about sections are immediately visible
-        document.querySelectorAll('.profile-section, .about-section').forEach(section => {
-            section.classList.add('visible');
-            section.style.opacity = '1';
-            section.style.transform = 'none';
-        });
-        
-        // Initialize animations
-        initParticles();
-        initMatrixRain();
-        initScrollAnimations();
-    }, 100);
 });
 
 // Add keyframe animation for particles
