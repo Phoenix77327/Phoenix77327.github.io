@@ -833,7 +833,106 @@ main {
 
 /* Media Queries for Mobile Responsiveness */
 @media screen and (max-width: 768px) {
-    /* Navigation */
+    /* Main content spacing */
+    main {
+        padding: 1rem;
+    }
+
+    /* Section spacing */
+    .section {
+        padding: 2rem 1rem;
+        margin: 0;
+    }
+
+    /* About section */
+    .about-section {
+        padding: 2rem 1rem;
+    }
+
+    .about-content {
+        padding: 0;
+    }
+
+    .about-content p {
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+
+    /* Text spacing */
+    p {
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+
+    /* Section titles */
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    /* Skills section */
+    .skills-container {
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .skill-category {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    /* Certificates section */
+    .certificates-grid {
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .certificate-card {
+        margin-bottom: 1rem;
+    }
+
+    /* Projects section */
+    .projects-grid {
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .project-card {
+        margin-bottom: 1rem;
+    }
+
+    /* Profile section */
+    .profile-section {
+        padding: 4rem 1rem 2rem;
+        min-height: auto;
+    }
+
+    .profile-content {
+        padding: 0;
+    }
+
+    /* Navigation adjustments */
+    .navbar {
+        padding: 0.75rem 1rem;
+    }
+
+    /* Side links */
+    .side-links {
+        position: fixed;
+        bottom: 1rem;
+        right: 50%;
+        transform: translateX(50%);
+        flex-direction: row;
+        gap: 1.5rem;
+        background-color: rgba(17, 24, 39, 0.8);
+        backdrop-filter: blur(8px);
+        padding: 0.75rem 1.5rem;
+        border-radius: 2rem;
+        margin: 0;
+    }
+
+    /* Mobile Menu Button */
     .mobile-menu-btn {
         display: block;
     }
@@ -865,121 +964,32 @@ main {
         width: 100%;
         text-align: center;
     }
-
-    /* Side Links */
-    .side-links {
-        position: fixed;
-        bottom: 2rem;
-        right: 50%;
-        transform: translateX(50%);
-        top: auto;
-        flex-direction: row;
-        background-color: rgba(17, 24, 39, 0.8);
-        backdrop-filter: blur(8px);
-        padding: 1rem;
-        border-radius: 2rem;
-    }
-
-    /* Profile Section */
-    .profile-section {
-        padding: 6rem 1.5rem 2rem;
-        flex-direction: column;
-        text-align: center;
-        gap: 2rem;
-    }
-
-    .photo-space {
-        margin: 0 auto;
-    }
-
-    .profile-content {
-        padding: 0;
-    }
-
-    .glitch-text {
-        font-size: 2rem;
-    }
-
-    /* About Section */
-    .about-section {
-        padding: 4rem 1.5rem 2rem;
-    }
-
-    .about-content {
-        padding: 0 1rem;
-    }
-
-    /* Skills Section */
-    .skills-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-
-    /* Certificates Section */
-    .certificates-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-
-    /* Projects Section */
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 1rem;
-    }
-
-    /* Section Titles */
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-
-    /* Boot Sequence */
-    .boot-content {
-        padding: 1.5rem;
-        width: 95%;
-    }
-
-    .boot-log-container {
-        height: 250px;
-    }
-
-    .log-entry {
-        font-size: 0.8rem;
-    }
 }
 
-/* Small Mobile Devices */
+/* Extra small devices */
 @media screen and (max-width: 480px) {
-    .navbar {
-        padding: 1rem;
-    }
-
-    .nav-brand {
-        font-size: 0.9rem;
+    .section {
+        padding: 1.5rem 0.75rem;
     }
 
     .profile-section {
-        padding: 5rem 1rem 2rem;
-    }
-
-    .glitch-text {
-        font-size: 1.75rem;
+        padding: 3.5rem 0.75rem 1.5rem;
     }
 
     .section-title {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .skill-category,
+    .certificate-card,
+    .project-card {
+        padding: 0.75rem;
     }
 
     .side-links {
-        bottom: 1rem;
-        gap: 1rem;
-    }
-
-    .social-icon {
-        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        gap: 1.25rem;
     }
 }
 
